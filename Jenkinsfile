@@ -126,10 +126,10 @@ pipeline {
         }
       }
     }
-    stage('cleanup'){
-      steps{
-               sh "rm -rf node_modules"
-       }
-    }
+//     stage('cleanup'){
+//       steps{
+//                sh "rm -rf node_modules"
+//        }
+//     }
   }
 }
