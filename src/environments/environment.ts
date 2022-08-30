@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  application_id: '', // Application id used in Step #1 
-  config_fetch_env: '', // Environement name used in Step #2
-  graphql_url: '' // https://graphql.<tenant>-neo.bcone.com
+  application_id: 'demo2', // Application id used in Step #1 
+  config_fetch_env: 'dev', // Environement name used in Step #2
+  graphql_url: 'https://graphql.dev-neo.bcone.com/' // https://graphql.<tenant>-neo.bcone.com
 };
 
 /*
