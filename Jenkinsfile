@@ -10,7 +10,7 @@ jenkinsAWSInputParameters  'ui'
 
 pipeline {
   agent {
-    label 'platformui'
+    label 'built-in'
   }
   options {
     disableConcurrentBuilds()
