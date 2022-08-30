@@ -43,7 +43,7 @@ pipeline {
     stage('compile') {
       steps {
         nodejs('NodeJS') {
-          sh 'node --max_old_space_size=8048 node_modules/@angular/cli/bin/ng build --prod --no-progress --output-hashing none --sourceMap=true'
+          sh 'node --max_old_space_size=8048 node_modules/@angular/cli/bin/ng build'
         }
       }
     }
