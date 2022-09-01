@@ -62,22 +62,22 @@ pipeline {
 //           }
 //         }
 //       }
-    stage('Set environment variable'){
-      when{
-        branch DEPLOY_BRANCH
-      }
-      steps{
-        script{
-        withAWS(region:"${params.AWS_REGION}",credentials:"${params.AWS_ENV}"){
-            sh 'chmod 755 cloud/aws/tenant-aws-cli.sh'
-            sh './cloud/aws/tenant-aws-cli.sh'
+//     stage('Set environment variable'){
+//       when{
+//         branch DEPLOY_BRANCH
+//       }
+//       steps{
+//         script{
+//         withAWS(region:"${params.AWS_REGION}",credentials:"${params.AWS_ENV}"){
+//             sh 'chmod 755 cloud/aws/tenant-aws-cli.sh'
+//             sh './cloud/aws/tenant-aws-cli.sh'
 
-            awsTenantDetails = readJSON file: 'cloud/aws/tenant-aws-data.json'
-            echo " DATABASE_URL : ${awsTenantDetails.DATABASE_URL}"
-        }
-       }
-      }
-    }
+//             awsTenantDetails = readJSON file: 'cloud/aws/tenant-aws-data.json'
+//             echo " DATABASE_URL : ${awsTenantDetails.DATABASE_URL}"
+//         }
+//        }
+//       }
+//     }
     stage('Run Sql Script'){
       when{
         branch DEPLOY_BRANCH
