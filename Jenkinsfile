@@ -1,4 +1,4 @@
-def DEPLOY_BRANCH = 'dev'
+def DEPLOY_BRANCH = 'main'
 
 def awsTenantDetails;
 def VERSION_NO = "";
