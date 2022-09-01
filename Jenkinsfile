@@ -49,19 +49,19 @@ pipeline {
     }
  
 
-  stage('GET TENANT INFO FROM PLATFORM'){
-          when {
-            expression {env.BRANCH_NAME == DEPLOY_BRANCH }
-          }
-        steps{
-        withCredentials([usernamePassword(credentialsId: "${params.MASTER_ACCOUNT_NAME}-marketplace-user", passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-          script{
-                sh 'chmod 755 cloud/aws/platform-cli.sh'
-                sh "./cloud/aws/platform-cli.sh -t ${params.MASTER_ACCOUNT_NAME} -e ${params.AWS_ENV} -k ${PASSWORD}"
-              }
-          }
-        }
-      }
+//   stage('GET TENANT INFO FROM PLATFORM'){
+//           when {
+//             expression {env.BRANCH_NAME == DEPLOY_BRANCH }
+//           }
+//         steps{
+//         withCredentials([usernamePassword(credentialsId: "${params.MASTER_ACCOUNT_NAME}-marketplace-user", passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+//           script{
+//                 sh 'chmod 755 cloud/aws/platform-cli.sh'
+//                 sh "./cloud/aws/platform-cli.sh -t ${params.MASTER_ACCOUNT_NAME} -e ${params.AWS_ENV} -k ${PASSWORD}"
+//               }
+//           }
+//         }
+//       }
     stage('Set environment variable'){
       when{
         branch DEPLOY_BRANCH
