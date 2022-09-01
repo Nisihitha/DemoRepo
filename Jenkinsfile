@@ -85,7 +85,7 @@ pipeline {
       steps{
         script{
           withAWS(region:"${params.AWS_REGION}",credentials:"${params.AWS_ENV}"){
-            sh "sed -i  's/%ENVIRONMENT%/${params.AWS_ENV}/g;s/%CLOUD_REGION%/${params.AWS_REGION}/g;s/%VERSION_NUMBER%/${VERSION_NO}/g;s/%CLOUD_PROVIDER%/aws/g;s/%DOMAIN%/${params.DOMAIN}/g;' db/demo2_configuration.sql"
+            sh "sed -i  's/%ENVIRONMENT%/${params.AWS_ENV}/g;s/%CLOUD_REGION%/${params.AWS_REGION}/g;s/%VERSION_NUMBER%/$1.0/g;s/%CLOUD_PROVIDER%/aws/g;s/%DOMAIN%/${params.DOMAIN}/g;' db/demo2_configuration.sql"
             sh 'psql postgresql://'+"${awsTenantDetails.DATABASE_URL}"+'/'+"${awsTenantDetails.DATABASE_NAME}"+' -f db/demo2_configuration.sql'
           }
         }
