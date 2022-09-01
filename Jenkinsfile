@@ -2,7 +2,7 @@ def DEPLOY_BRANCH = 'main'
 
 def awsTenantDetails;
 def VERSION_NO = "";
-def BASE_VERSION='1.8.0';
+def BASE_VERSION='1.0';
 @Library('shared-library')_
 
 //pass parameter as graphql/backend/ui/lamda/ansible/spark
